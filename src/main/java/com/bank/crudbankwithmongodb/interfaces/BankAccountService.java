@@ -12,7 +12,7 @@ public interface BankAccountService {
 
     BankAccount getAccountById(String id);
 
-    BankAccount createAccount(BankAccount account);
+    BankAccount createAccount(String customerId, BankAccount account);
 
     BankAccount updateAccount(String id, BankAccount account);
 

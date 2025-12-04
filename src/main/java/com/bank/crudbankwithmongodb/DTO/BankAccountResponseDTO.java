@@ -11,10 +11,13 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Builder
 public class BankAccountResponseDTO {
-    private String  id;
-    private String ownerName;
+    private String id;
     private String iban;
     private BigDecimal balance;
     private String status;
+    private String accountType;
     private LocalDateTime createdAt;
+
+    private String customerId;
+    private String customerFullName;
 }

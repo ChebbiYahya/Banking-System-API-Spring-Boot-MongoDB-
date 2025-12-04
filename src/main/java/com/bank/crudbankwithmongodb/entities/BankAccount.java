@@ -3,6 +3,7 @@ package com.bank.crudbankwithmongodb.entities;
 import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.math.BigDecimal;
@@ -16,11 +17,8 @@ import java.time.LocalDateTime;
 @Builder
 public class BankAccount {
     @Id
-    private String id;
+    private String id; // <--- String
 
-    private String ownerName;
-
-    @Indexed(unique = true)
     private String iban;
 
     @Builder.Default
@@ -30,5 +28,12 @@ public class BankAccount {
     private String status = "ACTIVE";
 
     @Builder.Default
+    private String accountType = "CHECKING";
+
+    @Builder.Default
     private LocalDateTime createdAt = LocalDateTime.now();
+
+    @DBRef
+    private Customer customer; // <--- lien vers Customer
+
 }
